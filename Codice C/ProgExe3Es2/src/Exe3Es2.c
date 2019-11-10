@@ -20,7 +20,11 @@ int main(void) {
 
 	addStudent(mate,s1);
 	addStudent(mate,s2);
-	printfCorso(mate);
+	numeroStudentiCorso(mate);
+
+    //deleteStud(mate,s2);
+	numeroStudentiCorso(mate);
+
 
 	return EXIT_SUCCESS;
 }

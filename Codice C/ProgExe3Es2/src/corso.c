@@ -6,20 +6,20 @@
 
 #endif /* CORSO_C_ */
 
-struct NodoLista{      //ci andava il typedef? quando bisogna usarlo?
+typedef struct NODO_LISTA{      //ci andava il typedef? quando bisogna usarlo?
 	StudenteRef stud;
-	struct NodoLista* next;
-};
-struct NodoLista* head=NULL;
+	struct NODO_LISTA* next;
+}NODO_LISTA;
+struct NODO_LISTA* head=NULL;  //variabile globale
 
 struct Corso{
 	char nome[40];
-	struct NodoLista* listaRef;
+	struct NODO_LISTA* listaRef;
 };
 
 CorsoRef mkCorso (char*n){
 	CorsoRef cors= malloc(sizeof(struct Corso));
-	cors->listaRef=malloc(sizeof(struct NodoLista));
+	cors->listaRef=malloc(sizeof(struct NODO_LISTA));
 	strcpy(cors->nome,n);
 	cors->listaRef->next=NULL;
 	cors->listaRef->stud=" ";
@@ -27,20 +27,35 @@ CorsoRef mkCorso (char*n){
 }
 
 void addStudent(CorsoRef c, StudenteRef s){
-	struct NodoLista*t;
-	t=malloc(sizeof(struct NodoLista));
+	struct NODO_LISTA*t;
+	t=malloc(sizeof(struct NODO_LISTA));
 	t->next=head;
 	t->stud=s;
 	head=t;
 }
 
-//void printCorso(CorsoRef c){
-//	printf("Nome del corso: %s",c->nome);
-//	printf(" Studenti partecipanti: ");
-//	for (struct NodoLista t=head; t!=NULL;t=t->next){
-//		printf(" %d ",t->stud->matricola);
+//void deleteStud(CorsoRef c,StudenteRef s2){
+//	NODO_LISTA* prec=head;
+//	NODO_LISTA* cons=head->next;
+//	while(cons!=NULL){
+//		if (cons==s2){
+//			prec=NULL;
+//		}
+//		prec=prec->next;
+//		cons=cons->next;
 //	}
 //}
+
+void numeroStudentiCorso(CorsoRef c){
+	int numeroNodi=0;
+	NODO_LISTA *scansione;
+	scansione=head;
+	while(scansione!=NULL){
+		numeroNodi++;
+		scansione=scansione->next;
+	}
+	printf("\nNumero nodi: %d",numeroNodi);
+}
 
 
 
