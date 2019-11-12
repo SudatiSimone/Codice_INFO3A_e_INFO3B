@@ -27,6 +27,11 @@ public class AlberoBinarioDemo{
         System.out.println("alb6=nodo6=6");
         AlberoBinario alb6 = new AlberoBinarioImpl(6);
         NodoBinario nodo6 = alb6.radice();
+        
+        
+        System.out.println("alb7=nodo7=7");
+        AlberoBinario alb7 = new AlberoBinarioImpl(7);
+        NodoBinario nodo7 = alb7.radice();
  
  
         System.out.println("alb1.innestaDes(nodo1,alb3)"); alb1.innestaDes(nodo1,alb3);
@@ -53,12 +58,13 @@ public class AlberoBinarioDemo{
 //        visita = (LinkedList) alb8.visitaDFS();
 //        System.out.println(visita.toString());
          
-        System.out.println("Calcolo livello(profondit‡) di un nodo");  
+        System.out.println("Calcolo livello(profondit√†) di un nodo");  
         System.out.println("Nodo 3: "+ alb1.level(nodo3));
         System.out.println("Nodo 5: "+ alb1.level(nodo5));
         System.out.println("Nodo 1: "+ alb1.level(nodo1));
         System.out.println("Calcolo altezza albero binario");
-        System.out.println("Albero1: "+ alb1.altezza());
+        alb7=alb1;
+        System.out.println("Albero1: "+ alb7.altezza());
         // System.out.println("Albero8: "+ alb8.altezza());
     }   
 }
